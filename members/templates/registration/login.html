@@ -1,0 +1,41 @@
+{% extends "blogapp/base.html" %}
+{% block title %}Login{% endblock title %}
+
+
+{% block content %}
+
+
+
+    <h1>Login</h1>
+    <br><br>
+    <div class="form-group">
+<form action="" method='POST'>
+    {% csrf_token %}
+    <form>
+        <div class="mb-3">
+            <label for="username">Username</label>
+          <input type="text" class="form-control" id='username'>
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+          <input type="password" class="form-control" id='password'>
+        </div>
+   
+
+
+
+
+    </form>
+    <br>
+    <button class='btn btn-dark'>Login</button>
+</div>
+<br>
+<a class='text-dark' href="{% url 'signup' %}">Not Registered? Sign Up here .... </a>
+
+</form>
+    
+    
+
+
+
+{% endblock content %}

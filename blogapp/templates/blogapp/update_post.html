@@ -1,0 +1,34 @@
+{% extends "blogapp/base.html" %}
+{% block title %}Edit Post{% endblock title %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+
+            <h1>Update Post</h1>
+            <br><br>
+            <div class="form-group">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }} <br>
+            <button class='btn btn-dark'>Update</button>
+        </div>
+
+        </form>
+
+        {% else %}
+        You're not Allowed here! (and you know it!)
+
+        {% endif %}
+
+    {% else %}
+    You're not Allowed here! (and you know it!)
+    {% endif %}
+
+
+
+{% endblock content %}

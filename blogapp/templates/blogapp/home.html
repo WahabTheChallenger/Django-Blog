@@ -1,0 +1,26 @@
+{% extends "blogapp/base.html" %}
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+
+
+
+    <h1>Post</h1>
+    <ul>
+    {% for x in object_list %}
+        <li><a class='text-light' href="{% url 'article' x.pk %}">{{x.title}}</a> - <a class='text-white' href="{% url 'category' x.category|slugify %}">{{x.category}}</a> 
+            {{x.author.first_name}} {{x.author.last_name}} - {{x.publish_date}} 
+            {% if user.is_authenticated %}
+                {% if user.id == x.author.id %}
+                    <a class='btn btn-dark' href="{% url 'update_post' x.pk %}">Edit Post</a> 
+                    <a class='btn btn-dark' href="{% url 'delete_post' x.pk %}">Delete Post</a>
+                {% endif %}
+            {% endif %}
+            <br>
+            {{x.description}}</li><br>
+    {% endfor %}
+    </ul>
+
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "blogapp/base.html" %}
+{% block title %}Add Post{% endblock title %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+        <h1>Add Post</h1>
+        <br><br>
+        <div class="form-group">
+    <form action="" method='POST'>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button class='btn btn-dark'>Post</button>
+    </div>
+
+    </form>
+    {% else %}
+    You're not Allowed here! (and you know it!)
+    {% endif %}
+    
+
+
+
+{% endblock content %}

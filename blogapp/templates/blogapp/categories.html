@@ -1,0 +1,29 @@
+{% extends "blogapp/base.html" %}
+{% block title %}Categories{% endblock title %}
+
+
+{% block content %}
+
+{% if category_posts %}
+
+        <h1>{{cats}}</h1>
+        <ul>
+        {% for x in category_posts %}
+                <li><a class='text-white' href="{% url 'article' x.pk %}">{{x.title}}</a> - {{x.author.first_name}} {{x.author.last_name}} - {{x.publish_date}} 
+                    {% if user.is_authenticated %}
+                        {% if user.id == x.author.id %}
+                            <a class='btn btn-dark' href="{% url 'update_post' x.pk %}">Edit Post</a> 
+                            <a class='btn btn-dark' href="{% url 'delete_post' x.pk %}">Delete Post</a>
+                        {% endif %}
+                    {% endif %}
+                    <br>
+                {{x.body|slice:":199"|safe}}</li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+<h2>SORRY This Page does not Exists!!</h2>
+
+
+{% endif %}
+{% endblock content %}
