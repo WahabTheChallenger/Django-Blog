@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = RichTextField(blank=True,null=True)
     publish_date = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=250,default='coding')
+    category = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
 
     def __str__(self):

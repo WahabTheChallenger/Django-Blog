@@ -11,28 +11,24 @@
     <div class="form-group">
 <form action="" method='POST'>
     {% csrf_token %}
-    <form>
         <div class="mb-3">
-            <label for="username">Username</label>
-          <input type="text" class="form-control" id='username'>
+          <input type="text" class="form-control" name = 'username' placeholder='Username' >
         </div>
         <div class="mb-3">
-            <label for="password">Password</label>
-          <input type="password" class="form-control" id='password'>
+          <input type="password" class="form-control" name = 'password' placeholder='Password' >
         </div>
    
 
 
 
-
+        <button class='btn btn-dark'>Login</button>
     </form>
     <br>
-    <button class='btn btn-dark'>Login</button>
+    
 </div>
 <br>
 <a class='text-dark' href="{% url 'signup' %}">Not Registered? Sign Up here .... </a>
 
-</form>
     
     
 
